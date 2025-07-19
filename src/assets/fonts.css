@@ -1,0 +1,41 @@
+@font-face {
+  font-family: 'Distant Galaxy';
+  src: url('./fonts/SF-Distant-Galaxy.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Distant Galaxy Outline';
+  src: url('./fonts/SF-Distant-Galaxy-Outline.ttf') format('truetype');
+  font-weight: normal;
+  font-style: outline;
+}
+
+@font-face {
+  font-family: 'Distant Galaxy Symbols';
+  src: url('./fonts/SF-Distant-Galaxy-Symbols.ttf') format('truetype');
+  font-weight: normal;
+  font-style: symbols;
+}
+
+@font-face {
+  font-family: 'Stereo Gothic 500';
+  src: url('./fonts/Stereo-Gothic-500.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Stereo Gothic 800';
+  src: url('./fonts/Stereo-Gothic-800.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Orbition';
+  src: url('./fonts/Orbitron-VariableFont.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}

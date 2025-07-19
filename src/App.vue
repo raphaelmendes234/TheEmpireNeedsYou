@@ -1,47 +1,50 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import SectionTitle from './components/SectionTitle.vue';
 </script>
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <div class="title-container">
+      <h1>L'empire</h1>
+      <p class="title-symbol" style="opacity: 0.5;">l empire</p>
+      <p class="subtitle">recrute, et il a besoin de toi</p>
     </div>
   </header>
 
   <main>
-    <TheWelcome />
+    <section>
+      <SectionTitle msg="You did it!" />
+    </section>
   </main>
+
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
+header{
+  width: 100%;
+  height: 100vh;
+  padding: 4rem;
+  background-color: #000000;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.title-container{
+  display: flex;
+  flex-direction: column;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+h1{
+  font-family: 'Distant galaxy';
+  font-size: 8rem;
+  font-weight: normal;
+  color: #FF0000;
+}
+.title-symbol{
+  font-family: 'Distant galaxy symbols';
+  font-size: 1.5rem;
+  color: #FF0000;
+}
+.subtitle{
+  font-family: 'Stereo Gothic 500';
+  font-size: 1.5rem;
+  color: #FFFFFF;
 }
 </style>
