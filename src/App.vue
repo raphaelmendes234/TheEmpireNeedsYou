@@ -1,50 +1,93 @@
 <script setup lang="ts">
+import HeroSection from './components/HeroSection.vue';
+import IconAmbition from './components/icons/IconAmbition.vue';
+import IconLoyalty from './components/icons/IconLoyalty.vue';
+import IconPower from './components/icons/IconPower.vue';
 import SectionTitle from './components/SectionTitle.vue';
+import StrenghtCard from './components/StrenghtCard.vue';
 </script>
 
 <template>
   <header>
-    <div class="title-container">
-      <h1>L'empire</h1>
-      <p class="title-symbol" style="opacity: 0.5;">l empire</p>
-      <p class="subtitle">recrute, et il a besoin de toi</p>
-    </div>
+    <HeroSection></HeroSection>
   </header>
 
   <main>
     <section>
-      <SectionTitle msg="You did it!" />
+      <SectionTitle>
+        <template #title>
+          Nos
+          <span class="alt-font">forces</span>
+        </template>
+        <template #title-symbols>nos forces</template>
+        <template #intro-text>Plonge dans l'essence du Côté Obscur : une philosophie rigoureusement sélective, impitoyablement ambitieuse… et étonnamment cohérente.</template>
+      </SectionTitle>
+      
+      <div class="grid-container">
+        <div></div>
+        <div>
+          <StrenghtCard>
+            <template #icon><IconPower /></template>
+            <template #title>Pouvoir</template>
+            <template #title-symbols>pouvoir</template>
+            <template #text>La Force n’est pas un outil, c’est une arme. Rejoins-nous pour en maîtriser les moindres recoins : lévitation, étranglement mental, contrôle des esprits... Tu ne suivras plus jamais les ordres : tu les donneras.</template>
+          </StrenghtCard>
+        </div>
+        <div>
+          <StrenghtCard>
+            <template #icon><IconAmbition /></template>
+            <template #title>Ambition</template>
+            <template #title-symbols>ambition</template>
+            <template #text>Ici, gravir les échelons n’est pas une option, c’est une vocation. L’échec ? Toléré une fois. Deux fois ? Expulsé dans une chambre sans oxygène. À chaque victoire, une promotion. À chaque défaite, une méditation... forcée.</template>
+          </StrenghtCard>
+        </div>
+        <div>
+          <StrenghtCard>
+            <template #icon><IconLoyalty /></template>
+            <template #title>Loyauté</template>
+            <template #title-symbols>loyaute</template>
+            <template #text>Ton libre arbitre ? On te le laisse… jusqu’à ce que l’Empereur te le reprenne. Une seule ligne de conduite : servir le plan de domination galactique. Un seul patron : Sa Majesté Palpatine. La trahison ? Très mauvaise idée.</template>
+          </StrenghtCard>
+        </div>
+      </div>
     </section>
   </main>
-
 </template>
 
 <style scoped>
-header{
-  width: 100%;
-  height: 100vh;
-  padding: 4rem;
-  background-color: #000000;
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
 }
 
-.title-container{
+header{
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background-color: var(--color-background);
+}
+
+section{
+  width: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  gap: 4rem;
 }
-h1{
-  font-family: 'Distant galaxy';
-  font-size: 8rem;
-  font-weight: normal;
-  color: #FF0000;
+
+@media (min-width: 1024px) {
+  section{
+    padding: 4rem;
+  }
+
+   .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
-.title-symbol{
-  font-family: 'Distant galaxy symbols';
-  font-size: 1.5rem;
-  color: #FF0000;
-}
-.subtitle{
-  font-family: 'Stereo Gothic 500';
-  font-size: 1.5rem;
-  color: #FFFFFF;
-}
+
 </style>
