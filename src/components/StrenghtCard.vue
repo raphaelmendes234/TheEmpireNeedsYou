@@ -14,35 +14,47 @@
 <style scoped>
 .card-container{
     width: 100%;
+    height: 100%;
     min-height: 192px;
-    padding: 1rem;
+    padding: 1.5rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     border: 1px solid var(--color-text);
 }
-.icon{
-    width: 50px;
-    height: 50px;
-    background: red;
-}
 .heading{
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
     gap: 1.5rem;
 }
 .title{
     text-transform: uppercase;
 }
 .title-symbols{
+    font-size: 0.5rem;
     color: var(--color-text);
 }
 
+@media (min-width: 768px) {
+    .card-container{
+        padding: 2rem;
+    } 
+}
+
 @media (min-width: 1024px) {
-   .card-container{
-    padding: 3rem;
-   } 
+    .card-container{
+        padding: 3rem;
+    } 
+    .heading{
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    .title-symbols{
+        font-size: 0.75rem;
+    }
 }
 </style>

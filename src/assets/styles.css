@@ -18,24 +18,58 @@ body{
 h1{
     font-family: 'Distant galaxy';
     font-weight: normal;
-    font-size: 8rem;
+    font-size: 3.5rem;
 }
 
 h2{ 
     font-family: 'Distant galaxy';
     font-weight: normal;
-    font-size: 5rem;
+    font-size: 2.5rem;
     color: var(--color-primary);
 }
 
 h3{
   font-family: 'Stereo Gothic 500';
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: 1rem;
+}
+
+p{
+  font-size: 1rem;
 }
 
 .title-symbols{
   font-family: 'Distant galaxy symbols';
   letter-spacing: 1.5rem;
-  opacity: 0.5;
+  font-size: 0.75rem;
+}
+
+@media (min-width: 768px) { 
+  h1{
+    font-size: 6rem;
+  }
+  h2{
+    font-size: 3.5rem;
+  }
+  h3{
+    font-size: 1rem;
+  }
+  .title-symbols{
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1024px) { 
+  h1{
+    font-size: 8rem;
+  }
+  h2{
+    font-size: 5rem;
+  }
+  h3{
+    font-size: 1.5rem;
+  }
+  .title-symbols{
+    font-size: 1.5rem;
+  }
 }

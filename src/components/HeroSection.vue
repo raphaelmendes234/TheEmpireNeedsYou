@@ -1,5 +1,5 @@
 <template>
-    <img class="background-image" src="/images/dark-vador.webp" alt="dark vador">
+    <!-- <img class="background-image" src="/images/dark-vador.webp" alt="dark vador"> -->
     <div class="title-container">
       <h1 class="title">L'empire</h1>
       <p class="title-symbols">l empire</p>
@@ -31,18 +31,29 @@
   -webkit-text-fill-color: transparent;
 }
 .title-symbols{
-    font-size: 1.5rem;
+  opacity: 0.5;
     color: var(--color-primary);
 }
 .subtitle{
+  margin-top: 0.5rem;
   font-family: 'Stereo Gothic 500';
-  font-size: 1.5rem;
+  font-size: 0.75rem;
   color: var(--color-text);
+}
+
+@media (min-width: 768px) { 
+  .subtitle{
+    font-size: 1rem;
+  }  
 }
 
 @media (min-width: 1024px) {
   .title-container{
     padding: 4rem;
+    background: linear-gradient(180deg, rgba(var(--color-background-rgb), 0.5) 50%, rgb(var(--color-background-rgb), 1) 100%);
+  }
+  .subtitle{
+    font-size: 1.5rem;
   }
 }
 

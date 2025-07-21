@@ -63,12 +63,16 @@ import StrenghtCard from './components/StrenghtCard.vue';
 header{
   position: relative;
   width: 100%;
-  height: 100vh;
+  height: 50vh;
   box-sizing: border-box;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   background-color: var(--color-background);
+  background: url("/images/dark-vador.webp");
+  background-repeat: no-repeat;
+  background-position: center 60%;
+  background-size: 100%;
 }
 
 section{
@@ -80,11 +84,23 @@ section{
   gap: 4rem;
 }
 
+@media (min-width: 768px) {
+  header{
+    height: 75vh;
+    background-position: center 65%;
+    background-size: 75%;
+  }
+}
+
 @media (min-width: 1024px) {
+  header{
+    height: 100vh;
+    background-position: center 50%;
+    background-size: 75%;
+  }
   section{
     padding: 4rem;
   }
-
    .grid-container {
     grid-template-columns: repeat(2, 1fr);
   }

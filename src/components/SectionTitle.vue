@@ -20,7 +20,6 @@
 }
 
 .title-symbols{
-    font-size: 1rem;
     color: var(--color-primary);
 }
 
