@@ -4,7 +4,7 @@
             <slot name="icon"></slot>      
             <div>
                 <h3 class="title"><slot name="title"></slot></h3>
-                <p class="title-symbols"><slot name="title-symbols"></slot></p>
+                <p class="symbols"><slot name="symbols"></slot></p>
             </div>
         </div>
         <p><slot name="text"></slot></p>
@@ -33,10 +33,6 @@
 .title{
     text-transform: uppercase;
 }
-.title-symbols{
-    font-size: 0.5rem;
-    color: var(--color-text);
-}
 
 @media (min-width: 768px) {
     .card-container{
@@ -56,8 +52,5 @@
         padding: 3rem;
         gap: 2rem;
     } 
-    .title-symbols{
-        font-size: 0.75rem;
-    }
 }
 </style>

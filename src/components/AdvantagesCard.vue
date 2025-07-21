@@ -4,7 +4,7 @@
             <p class="number"><slot name="number"></slot> </p>     
             <div class="title-wrapper">
                 <h3 class="title"><slot name="title"></slot></h3>
-                <p class="title-symbols"><slot name="title-symbols"></slot></p>
+                <p class="symbols"><slot name="symbols"></slot></p>
             </div>
         </div>
         <p><slot name="text"></slot></p>
@@ -41,11 +41,6 @@
     text-align: left;
     text-transform: uppercase;
 }
-.title-symbols{
-    letter-spacing: 1rem;
-    font-size: 0.5rem;
-    color: var(--color-text);
-}
 
 @media (min-width: 768px) {
     .card-container{
@@ -71,9 +66,6 @@
     } 
     .number{
         font-size: 5rem;
-    }
-    .title-symbols{
-        font-size: 0.75rem;
     }
 }
 
