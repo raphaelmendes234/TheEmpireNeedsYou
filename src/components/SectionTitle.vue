@@ -20,7 +20,8 @@
 }
 
 .title-symbols{
-    color: var(--color-primary);
+  margin-top: 0.5rem;
+  color: var(--color-primary);
 }
 
 @media (min-width: 1024px) {

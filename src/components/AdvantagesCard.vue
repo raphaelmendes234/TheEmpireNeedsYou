@@ -1,8 +1,8 @@
 <template>
     <div class="card-container">
         <div class="heading">
-            <slot name="icon"></slot>      
-            <div>
+            <p class="number"><slot name="number"></slot> </p>     
+            <div class="title-wrapper">
                 <h3 class="title"><slot name="title"></slot></h3>
                 <p class="title-symbols"><slot name="title-symbols"></slot></p>
             </div>
@@ -16,12 +16,11 @@
     width: 100%;
     height: 100%;
     min-height: 192px;
-    padding: 1rem;
+    padding: 2rem 1rem;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    border: 1px solid var(--color-text);
 }
 .heading{
     display: flex;
@@ -30,24 +29,38 @@
     align-items: flex-start;
     gap: 1rem;
 }
+.number{
+    font-family: 'Distant Galaxy Outline';
+    font-weight: normal;
+    font-size: 3rem;
+}
+.title-wrapper{
+    width: 100%;
+}
 .title{
+    text-align: left;
     text-transform: uppercase;
 }
 .title-symbols{
+    letter-spacing: 1rem;
     font-size: 0.5rem;
     color: var(--color-text);
 }
 
 @media (min-width: 768px) {
     .card-container{
+        width: 65%;
         padding: 2rem;
         gap: 1.5;
     } 
     .heading{
-                flex-direction: row;
+        flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         gap: 1.5rem;
+    }
+    .title-symbols{
+        letter-spacing: 1.5rem;
     }
 }
 
@@ -56,8 +69,17 @@
         padding: 3rem;
         gap: 2rem;
     } 
+    .number{
+        font-size: 5rem;
+    }
     .title-symbols{
         font-size: 0.75rem;
     }
+}
+
+@media (min-width: 1280px) {
+    .card-container{
+        width: 50%;
+    } 
 }
 </style>
