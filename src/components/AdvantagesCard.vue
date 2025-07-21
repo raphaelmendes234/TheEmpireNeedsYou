@@ -54,9 +54,6 @@
         align-items: center;
         gap: 1.5rem;
     }
-    .title-symbols{
-        letter-spacing: 1.5rem;
-    }
 }
 
 @media (min-width: 1024px) {

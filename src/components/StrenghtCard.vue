@@ -40,7 +40,7 @@
         gap: 1.5;
     } 
     .heading{
-                flex-direction: row;
+        flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         gap: 1.5rem;
