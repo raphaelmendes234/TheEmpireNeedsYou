@@ -1,9 +1,8 @@
 <template>
-    <!-- <img class="background-image" src="/images/dark-vador.webp" alt="dark vador"> -->
     <div class="title-container">
-      <h1 class="title">L'empire</h1>
-      <p class="title-symbols">l empire</p>
-      <p class="subtitle">recrute, et il a besoin de toi</p>
+      <h1 ref="title" class="title">L'empire</h1>
+      <p ref="titleSymbols" class="title-symbols">l empire</p>
+      <p ref="subtitle" class="subtitle">recrute, et il a besoin de toi</p>
     </div>
 </template>
 
@@ -23,7 +22,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background: linear-gradient(180deg, rgba(var(--color-background-rgb), 0.5) 50%, rgb(var(--color-background-rgb), 1) 100%);
+  background: linear-gradient(180deg, rgba(var(--color-background-rgb), 0.5) 30%, rgb(var(--color-background-rgb), 1) 100%);
 }
 .title{
   background: -webkit-linear-gradient(var(--color-primary), var(--color-background));
@@ -42,6 +41,9 @@
 }
 
 @media (min-width: 768px) { 
+  .title-container{
+    background: linear-gradient(180deg, rgba(var(--color-background-rgb), 0.5) 30%, rgb(var(--color-background-rgb), 1) 80%);
+  }
   .subtitle{
     font-size: 1rem;
   }  
@@ -50,7 +52,7 @@
 @media (min-width: 1024px) {
   .title-container{
     padding: 4rem;
-    background: linear-gradient(180deg, rgba(var(--color-background-rgb), 0.5) 50%, rgb(var(--color-background-rgb), 1) 100%);
+    background: linear-gradient(180deg, rgba(var(--color-background-rgb), 0.5) 30%, rgb(var(--color-background-rgb), 1) 80%);
   }
   .subtitle{
     font-size: 1.5rem;
@@ -58,3 +60,23 @@
 }
 
 </style>
+
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
+
+const title = ref<HTMLElement | null>(null)
+const titleSymbols = ref<HTMLElement | null>(null)
+const subtitle = ref<HTMLElement | null>(null)
+
+
+onMounted(() => {
+  const tl = gsap.timeline({delay: 1})
+
+  tl.from(title.value, { opacity: 0, y: 50, duration: 0.8, ease: 'power2.out'})
+  tl.from(titleSymbols.value, { opacity: 0, y: 30, duration: 0.6, ease: 'power2.out'}, '-=0.4')
+  tl.from(subtitle.value, { opacity: 0, y: 20, duration: 0.6, ease: 'power2.out'}, '-=0.3')
+
+})
+
+</script>

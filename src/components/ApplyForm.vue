@@ -134,7 +134,7 @@ input.invalid, select.invalid, textarea.invalid {
 }
 </style>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, ref } from 'vue'
 import gsap from 'gsap'
 
@@ -149,7 +149,7 @@ const message = ref('')
 const errorMessage = ref('')
 const confirmationMessage = ref('')
 
-const handleSubmit = (event) => {
+const handleSubmit = (event: Event) => {
     event.preventDefault()
 
     //Reset messages
@@ -180,10 +180,9 @@ const handleSubmit = (event) => {
 
         //Ajoute la classe 'invalid' au champ vide
         const e = document.getElementById(firstInvalid.id)
-        e.classList.add('invalid')
-
+        e!.classList.add('invalid')
         //Scroll to invalid field
-        e.scrollIntoView({ behavior: 'smooth', block: 'center' })
+        e!.scrollIntoView({ behavior: 'smooth', block: 'center' })
 
         return
     }

@@ -1,5 +1,5 @@
 <template>
-    <div class="card-container">
+    <div ref="cardContainer" class="card-container">
         <div class="heading">
             <p class="number"><slot name="number"></slot> </p>     
             <div class="title-wrapper">

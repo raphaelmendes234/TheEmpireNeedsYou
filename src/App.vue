@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import AdvantagesCard from './components/AdvantagesCard.vue';
 import AdvantagesCorners from './components/AdvantagesCorners.vue';
-import ApplyForm from './components/ApplyForm.vue';
+
 import HeroSection from './components/HeroSection.vue';
 import IconAmbition from './components/icons/IconAmbition.vue';
 import IconInstagram from './components/icons/IconInstagram.vue';
@@ -10,6 +10,28 @@ import IconPower from './components/icons/IconPower.vue';
 import IconTiktok from './components/icons/IconTiktok.vue';
 import SectionTitle from './components/SectionTitle.vue';
 import StrenghtCard from './components/StrenghtCard.vue';
+import ApplyForm from './components/ApplyForm.vue';
+
+import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger) 
+
+onMounted(() => {
+  const ArrayLeftCards = document.querySelectorAll('.card-left')
+  const ArrayRightCards = document.querySelectorAll('.card-right')
+
+  ArrayLeftCards.forEach((e) => {
+    const card = e.children[0]
+    gsap.from(card, { scrollTrigger: card, opacity: 0, x: -50, duration: 0.8, delay: 0.5})
+  });
+
+    ArrayRightCards.forEach((e) => {
+    const card = e.children[0]
+    gsap.from(card, { scrollTrigger: card, opacity: 0, x: 50, duration: 0.8, delay: 0.5})
+  });
+
+})
 </script>
 
 <template>
@@ -18,7 +40,7 @@ import StrenghtCard from './components/StrenghtCard.vue';
   </header>
 
   <main>
-    <section>
+    <section style="background-color: var(--color-background);">
       <SectionTitle>
         <template #title>
           Nos
@@ -68,7 +90,7 @@ import StrenghtCard from './components/StrenghtCard.vue';
       </SectionTitle>
 
       <div class="advantages-container">
-        <div class="advantage-wrapper left">
+        <div class="advantage-wrapper card-left">
           <AdvantagesCard>
             <template #number>1.</template>
             <template #title>Accès prioritaire à l'étoile de la mort</template>
@@ -78,7 +100,7 @@ import StrenghtCard from './components/StrenghtCard.vue';
           </AdvantagesCard>
           <AdvantagesCorners />
         </div>
-        <div class="advantage-wrapper right">
+        <div class="advantage-wrapper card-right">
           <AdvantagesCard>
             <template #number>2.</template>
             <template #title>Télétravail par télépathie</template>
@@ -87,7 +109,7 @@ import StrenghtCard from './components/StrenghtCard.vue';
           </AdvantagesCard>
           <AdvantagesCorners />
         </div>
-        <div class="advantage-wrapper left">
+        <div class="advantage-wrapper card-left">
           <AdvantagesCard>
             <template #number>3.</template>
             <template #title>Formation continue en étranglement à distance</template>
@@ -109,10 +131,10 @@ import StrenghtCard from './components/StrenghtCard.vue';
         <template #intro-text>Dépose ton engagement. L’Empire analysera ta loyauté.</template>
       </SectionTitle>
 
-      <ApplyForm />
+      <ApplyForm></ApplyForm>
     </section>
 
-    <section>
+    <footer>
       <SectionTitle>
         <template #title>
           contact
@@ -147,11 +169,83 @@ import StrenghtCard from './components/StrenghtCard.vue';
         </div>
       </div>
 
-    </section>
+    </footer>
   </main>
 </template>
 
 <style scoped>
+header{
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  background-color: var(--color-background);
+  background: url("/images/dark-vador.webp");
+  background-repeat: no-repeat;
+  background-position: center 60%;
+  background-size: 100%;
+  animation: fadeIn 2s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+section{
+  width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  background-color: rgb(var(--color-background-rgb), 0.8);
+}
+
+footer{
+    width: 100%;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  background-color: rgb(var(--color-background-rgb), 0.8);
+}
+
+.strenghts-container {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.advantages-container{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.red{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+.advantage-wrapper{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid var(--color-text);
+  border-bottom: 1px solid var(--color-text);
+}
+.card-left{
+  justify-content: flex-start;
+  background: linear-gradient(200deg,rgba(255, 0, 0, 0) 50%, rgba(109, 0, 0, 0.5) 100%);
+}
+.card-right{
+  justify-content: flex-end;
+  background: linear-gradient(150deg,rgba(255, 0, 0, 0) 50%, rgba(109, 0, 0, 0.5) 100%);
+}
+
 .link{
   color: var(--color-primary);
   text-decoration: none;
@@ -181,62 +275,6 @@ import StrenghtCard from './components/StrenghtCard.vue';
   gap: 1rem;
 }
 
-header{
-  position: relative;
-  width: 100%;
-  height: 50vh;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-end;
-  background-color: var(--color-background);
-  background: url("/images/dark-vador.webp");
-  background-repeat: no-repeat;
-  background-position: center 60%;
-  background-size: 100%;
-}
-
-section{
-  width: 100%;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-}
-
-.strenghts-container {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-.advantages-container{
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
-.red{
-  width: 100px;
-  height: 100px;
-  background-color: red;
-}
-.advantage-wrapper{
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  border-top: 1px solid var(--color-text);
-  border-bottom: 1px solid var(--color-text);
-}
-.left{
-  justify-content: flex-start;
-  background: linear-gradient(200deg,rgba(255, 0, 0, 0) 50%, rgba(109, 0, 0, 0.5) 100%);
-}
-.right{
-  justify-content: flex-end;
-  background: linear-gradient(150deg,rgba(255, 0, 0, 0) 50%, rgba(109, 0, 0, 0.5) 100%);
-}
-
 @media (min-width: 768px) {
   header{
     height: 75vh;
@@ -248,10 +286,10 @@ section{
 @media (min-width: 1024px) {
   header{
     height: 100vh;
-    background-position: center 50%;
+    background-position: center 40%;
     background-size: 75%;
   }
-  section{
+  section, footer{
     padding: 4rem;
   }
    .strenghts-container {

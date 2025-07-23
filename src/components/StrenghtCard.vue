@@ -1,5 +1,5 @@
 <template>
-    <div class="card-container">
+    <div ref="strenghtCard" class="card-container">
         <div class="heading">
             <slot name="icon"></slot>      
             <div>
@@ -22,6 +22,14 @@
     flex-direction: column;
     gap: 1rem;
     border: 1px solid var(--color-text);
+    opacity: 0;
+    background: linear-gradient(200deg,rgba(255, 0, 0, 0) 50%, rgba(255, 255, 255, 0.1) 100%);
+    transition: all 0.25s ease-in-out;
+}
+.card-container:hover{
+    opacity: 1 !important;
+    background: linear-gradient(200deg,rgba(255, 0, 0, 0) 50%, rgba(255, 255, 255, 0.5) 100%);
+    box-shadow: 0px 0px 25px 0px var(--color-text);
 }
 .heading{
     display: flex;
@@ -33,6 +41,7 @@
 .title{
     text-transform: uppercase;
 }
+
 
 @media (min-width: 768px) {
     .card-container{
@@ -54,3 +63,19 @@
     } 
 }
 </style>
+
+<script scoped setup lang="ts">
+import { onMounted, ref } from 'vue'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
+gsap.registerPlugin(ScrollTrigger) 
+
+const strenghtCard = ref<HTMLElement | null>(null)
+
+onMounted(() => {
+const card = strenghtCard.value
+
+gsap.to(card, {scrollTrigger: card, opacity: 0.5, duration: 0.5, ease: 'power2.out' })
+
+})
+</script>
