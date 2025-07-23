@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AdvantagesCard from './components/AdvantagesCard.vue';
 import AdvantagesCorners from './components/AdvantagesCorners.vue';
+import ApplyForm from './components/ApplyForm.vue';
 import HeroSection from './components/HeroSection.vue';
 import IconAmbition from './components/icons/IconAmbition.vue';
 import IconInstagram from './components/icons/IconInstagram.vue';
@@ -23,7 +24,7 @@ import StrenghtCard from './components/StrenghtCard.vue';
           Nos
           <span class="alt-font">forces</span>
         </template>
-        <template #symbols>nos forces</template>
+        <template #title-symbols>nos forces</template>
         <template #intro-text>Plonge dans l'essence du Côté Obscur : une philosophie rigoureusement sélective, impitoyablement ambitieuse… et étonnamment cohérente.</template>
       </SectionTitle>
       
@@ -107,6 +108,8 @@ import StrenghtCard from './components/StrenghtCard.vue';
         <template #title-symbols>rejoins nous</template>
         <template #intro-text>Dépose ton engagement. L’Empire analysera ta loyauté.</template>
       </SectionTitle>
+
+      <ApplyForm />
     </section>
 
     <section>
@@ -152,6 +155,10 @@ import StrenghtCard from './components/StrenghtCard.vue';
 .link{
   color: var(--color-primary);
   text-decoration: none;
+  transition: all 0.4s ease-in-out;
+}
+.link:hover{
+  text-shadow: 0px 0px 10px var(--color-primary);
 }
 
 .contact-container{
