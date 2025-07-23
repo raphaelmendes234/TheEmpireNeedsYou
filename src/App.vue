@@ -121,7 +121,7 @@ onMounted(() => {
       </div>
     </section>
 
-    <section>
+    <section >
       <SectionTitle>
         <template #title>
           rejoins nous
@@ -193,18 +193,8 @@ header{
   from { opacity: 0; }
   to { opacity: 1; }
 }
-section{
+section, footer{
   width: 100%;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  background-color: rgb(var(--color-background-rgb), 0.8);
-}
-
-footer{
-    width: 100%;
   padding: 2rem 1rem;
   box-sizing: border-box;
   display: flex;
